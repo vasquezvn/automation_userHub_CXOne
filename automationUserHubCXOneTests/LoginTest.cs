@@ -22,9 +22,14 @@ namespace automationUserHubCXOneTests
                 .WithPassword("123Test!@#")
                 .Login();
 
-            //Assert.IsTrue(DashboardPage.IsAt, "Failed to Login");
+            Assert.IsTrue(DashboardPage.IsAt, "Failed to Login");
         }
 
+        [TestCleanup]
+        public void Cleanup()
+        {
+            Driver.Close();
+        }
 
     }
 }
