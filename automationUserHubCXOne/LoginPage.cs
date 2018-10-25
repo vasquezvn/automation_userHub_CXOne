@@ -16,7 +16,7 @@ namespace automationUserHubCXOne
 
         public static LoginCommand LoginAs(string userName)
         {
-            return new LoginCommand();
+            return new LoginCommand(userName);
         }
     }
 }

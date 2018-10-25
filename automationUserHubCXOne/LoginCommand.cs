@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 
 namespace automationUserHubCXOne
 {
@@ -21,7 +22,18 @@ namespace automationUserHubCXOne
 
         public void Login()
         {
-            
+            var loginEmailFieldNext = Driver.Instance.FindElement(By.Id("emailFieldNext"));
+            loginEmailFieldNext.SendKeys(userName);
+
+            var nextButtonLogin = Driver.Instance.FindElement(By.Id("nextBtn"));
+            nextButtonLogin.Click();
+
+            var passField = Driver.Instance.FindElement(By.Id("mfaPassField"));
+            passField.SendKeys(password);
+
+            var signInLoginBtn = Driver.Instance.FindElement(By.Id("mfaLoginBtn"));
+            signInLoginBtn.Click();
+
         }
     }
 }

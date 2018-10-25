@@ -4,14 +4,16 @@ using System;
 
 namespace automationUserHubCXOne
 {
-    internal class Driver
+    public class Driver
     {
-        public static IWebDriver Instance { get; internal set; }
+        public static IWebDriver Instance { get; set; }
 
         public static void Initialize()
         {
-            Instance = new ChromeDriver();
-            
+            Instance = new ChromeDriver(@"C:\Users\ivan.vasquez\Libraries\Selenium");
+
+            Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Instance.Manage().Window.Maximize();
         }
     }
 }
