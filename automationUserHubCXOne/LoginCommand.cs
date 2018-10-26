@@ -35,10 +35,18 @@ namespace automationUserHubCXOne
             var signInLoginBtn = Driver.Instance.FindElement(By.Id("mfaLoginBtn"));
             signInLoginBtn.Click();
 
-            var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
-            var tagName = Driver.Instance.FindElements(By.TagName("h1"))[0].Text;
+            //var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(30));
+            //wait.Until(x => x.FindElement(By.ClassName("page-title ng-binding")));
 
-            wait.Until(d => d.SwitchTo().ActiveElement().GetAttribute("TagName") == tagName);
+            try
+            {
+                new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("page-title ng-binding")));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
 
         }
     }
