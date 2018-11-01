@@ -51,10 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateDailyRuleCommand.cs" />
+    <Compile Include="DailyRulePage.cs" />
     <Compile Include="DashboardPage.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="LoginCommand.cs" />
     <Compile Include="LoginPage.cs" />
+    <Compile Include="NewDailyRulePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,9 +35,6 @@ namespace automationUserHubCXOne
             var signInLoginBtn = Driver.Instance.FindElement(By.Id("mfaLoginBtn"));
             signInLoginBtn.Click();
 
-            //var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(30));
-            //wait.Until(x => x.FindElement(By.ClassName("page-title ng-binding")));
-
             try
             {
                 new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("page-title ng-binding")));
