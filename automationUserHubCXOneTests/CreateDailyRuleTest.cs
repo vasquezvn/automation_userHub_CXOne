@@ -37,6 +37,7 @@ namespace automationUserHubCXOneTests
         [TestCleanup]
         public void Cleanup()
         {
+            DailyRulePage.deleteRule(DailyRulePage.Title);
             Driver.Close();
         }
     }
