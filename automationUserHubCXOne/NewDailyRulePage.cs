@@ -30,19 +30,24 @@ namespace automationUserHubCXOne
 
         public static void GoToNewRule()
         {
-            var dailyRulesTable = Driver.Instance.FindElement(By.ClassName("daily-rules-grid"));
+            //var dailyRulesTable = Driver.Instance.FindElement(By.ClassName("daily-rules-grid"));
+            var dailyRulesTable = Driver.Instance.FindElement(By.XPath("/html/body/div[1]/main/div/div/div[2]/div/div/nice-grid/div/div[2]/div/div/div/div[3]/div[2]"));
 
-            var dailyRulesDivs = dailyRulesTable.FindElements(By.ClassName("ag-row ag-row-no-focus"));
+            var dailyRulesDivs = dailyRulesTable.FindElements(By.ClassName("ag-row-no-focus"));
 
-            foreach(var dailyRuleRow in dailyRulesDivs)
+            foreach (var dailyRuleRow in dailyRulesDivs)
             {
-                var newDailyRule = dailyRuleRow.FindElements(By.ClassName("ag-cell ag-cell-not-inline-editing"))[1];
-
-                if (newDailyRule.Text.Equals(DailyRulePage.Title))
+                if (!dailyRuleRow.Text.Equals(String.Empty))
                 {
-                    newDailyRule.Click();
-                    break;
+                    var newDailyRule = dailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[1].Text;
+
+                    if (newDailyRule.Equals(DailyRulePage.Title))
+                    {
+                        dailyRuleRow.Click();
+                        break;
+                    }
                 }
+                
             }
 
         }

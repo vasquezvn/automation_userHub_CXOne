@@ -16,6 +16,8 @@ namespace automationUserHubCXOne
         public void Create()
         {
             Driver.Instance.FindElement(By.Name("RuleTitle")).SendKeys(title);
+            DailyRulePage.Title = this.title;
+            Helper.waitForId("save");
 
             //When we are working with frames
             //Driver.Instance.SwitchTo().Frame("content-fr");

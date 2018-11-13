@@ -55,6 +55,7 @@
     <Compile Include="DailyRulePage.cs" />
     <Compile Include="DashboardPage.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="LoginCommand.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="NewDailyRulePage.cs" />

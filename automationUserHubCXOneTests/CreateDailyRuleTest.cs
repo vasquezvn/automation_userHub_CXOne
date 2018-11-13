@@ -27,11 +27,11 @@ namespace automationUserHubCXOneTests
                 .Login();
 
             NewDailyRulePage.GoTo();
-            NewDailyRulePage.CreateDailyRule("IV_Rule_auto").Create();
+            NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
 
             NewDailyRulePage.GoToNewRule();
 
-            Assert.AreEqual(DailyRulePage.Title, "IV_Rule_auto", "Title did not match!");
+            Assert.AreEqual(DailyRulePage.getTitle(), DailyRulePage.Title, "Title did not match!");
         }
 
         [TestCleanup]

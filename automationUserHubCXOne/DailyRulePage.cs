@@ -11,14 +11,26 @@ namespace automationUserHubCXOne
     {
         public static string Title
         {
-            get
-            {
-                var title = Driver.Instance.FindElement(By.Name("RuleTitle"));
+            get;
+            //get
+            //{
+            //    var title = Driver.Instance.FindElement(By.Name("RuleTitle"));
 
-                if (title != null)
-                    return title.Text;
-                return String.Empty;
-            }
+            //    if (title != null)
+            //        return title.Text;
+            //    return String.Empty;
+            //}
+            set;
         }
+
+        public static string getTitle()
+        {
+            var title = Driver.Instance.FindElement(By.Name("RuleTitle"));
+
+            if (title != null)
+                return title.Text;
+            return String.Empty;
+        }
+
     }
 }
