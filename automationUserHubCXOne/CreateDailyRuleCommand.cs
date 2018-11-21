@@ -15,6 +15,7 @@ namespace automationUserHubCXOne
 
         public void Create()
         {
+            Helper.waitForClassName("RuleTitle");
             Driver.Instance.FindElement(By.Name("RuleTitle")).SendKeys(title);
             DailyRulePage.Title = this.title;
             Helper.waitForId("save");

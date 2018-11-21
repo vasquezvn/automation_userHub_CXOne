@@ -9,6 +9,9 @@ namespace automationUserHubCXOne
 {
     public class NewDailyRulePage
     {
+        public static IWebElement newDailyRuleRow = null;
+
+
         public static void GoTo()
         {
             var menuOptions = Driver.Instance.FindElement(By.Id("module-picker-link"));
@@ -30,8 +33,8 @@ namespace automationUserHubCXOne
 
         public static void GoToNewRule()
         {
-            //var dailyRulesTable = Driver.Instance.FindElement(By.ClassName("daily-rules-grid"));
-            var dailyRulesTable = Driver.Instance.FindElement(By.XPath("/html/body/div[1]/main/div/div/div[2]/div/div/nice-grid/div/div[2]/div/div/div/div[3]/div[2]"));
+            Helper.waitForClassName("daily-rules-grid-wrapper");
+            var dailyRulesTable = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
 
             var dailyRulesDivs = dailyRulesTable.FindElements(By.ClassName("ag-row-no-focus"));
 
@@ -43,7 +46,10 @@ namespace automationUserHubCXOne
 
                     if (newDailyRule.Equals(DailyRulePage.Title))
                     {
+                        newDailyRuleRow = dailyRuleRow;
+
                         dailyRuleRow.Click();
+
                         break;
                     }
                 }

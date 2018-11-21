@@ -10,11 +10,11 @@ namespace automationUserHubCXOne
 {
     public class Helper
     {
-        public static void waitForClassName(String name)
+        public static void waitForClassName(String name, int waitTime = 15)
         {
             try
             {
-                new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.ClassName(name)));
+                new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(waitTime)).Until(ExpectedConditions.ElementIsVisible(By.ClassName(name)));
             }
             catch (Exception ex)
             {
@@ -22,11 +22,11 @@ namespace automationUserHubCXOne
             }
         }
 
-        public static void waitForId(String id)
+        public static void waitForId(String id, int waitTime = 15)
         {
             try
             {
-                new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.Id(id)));
+                new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(waitTime)).Until(ExpectedConditions.ElementIsVisible(By.Id(id)));
             }
             catch (Exception ex)
             {
