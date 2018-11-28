@@ -9,7 +9,7 @@ namespace automationUserHubCXOne
 {
     public class NewDailyRulePage
     {
-        public static IWebElement newDailyRuleRow = null;
+        public static IWebElement newDailyRuleRow_delete = null;
 
 
         public static void GoTo()
@@ -46,7 +46,7 @@ namespace automationUserHubCXOne
 
                     if (newDailyRule.Equals(DailyRulePage.Title))
                     {
-                        newDailyRuleRow = dailyRuleRow;
+                        //newDailyRuleRow = dailyRuleRow;
 
                         dailyRuleRow.Click();
 

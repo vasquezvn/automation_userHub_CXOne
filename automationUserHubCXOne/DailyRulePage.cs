@@ -25,25 +25,70 @@ namespace automationUserHubCXOne
 
         public static string getTitle()
         {
-            var title = Driver.Instance.FindElement(By.Name("RuleTitle"));
+            //Helper.waitForClassName("RuleTitle");
+            ////var title = Driver.Instance.FindElement(By.Name("RuleTitle"));
+            //var title = Driver.Instance.FindElement(By.XPath("//input[@name='RuleTitle']"));
 
-            if (title != null)
-                return title.Text;
-            return String.Empty;
+            //if (title != null)
+            //    return title.Text;
+            //return String.Empty;
+
+            // new code
+            Helper.waitForClassName("daily-rules-grid-wrapper");
+            var dailyRulesTable = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
+            var dailyRulesDivs = dailyRulesTable.FindElements(By.ClassName("ag-row-no-focus"));
+            var newDailyRuleTitle = String.Empty;
+
+            foreach (var dailyRuleRow in dailyRulesDivs)
+            {
+                if (!dailyRuleRow.Text.Equals(String.Empty))
+                {
+                    var newDailyRule = dailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[1].Text;
+
+                    if (newDailyRule.Equals(DailyRulePage.Title))
+                    {
+                        newDailyRuleTitle = newDailyRule;
+                        NewDailyRulePage.newDailyRuleRow_delete = dailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
+
+                        //newDailyRuleRow = dailyRuleRow;
+                        //dailyRuleRow.Click();
+
+                        break;
+                    }
+                }
+
+            }
+            return newDailyRuleTitle;
         }
 
         public static void deleteRule()
         {
-            if (!NewDailyRulePage.newDailyRuleRow.Equals(null))
+            try
             {
-                var cancelBtn = Driver.Instance.FindElement(By.Id("cancel"));
-                cancelBtn.Click();
+                NewDailyRulePage.newDailyRuleRow_delete.Click();
 
-                var deleteBtn = NewDailyRulePage.newDailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
-                deleteBtn.Click();
+                var deletebtn = Driver.Instance.FindElement(By.Id("yesBtn"));
+                deletebtn.Click();
 
-                var yesBtn = deleteBtn.FindElement(By.Id("yesBtn"));
-                yesBtn.Click();
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error on: " + ex.Message);
+            }
+
+            //if (!NewDailyRulePage.newDailyRuleRow_delete.Equals(null))
+            //{
+            //    NewDailyRulePage.newDailyRuleRow_delete.Click();
+
+                //var cancelBtn = Driver.Instance.FindElement(By.Id("cancel"));
+                //cancelBtn.Click();
+
+                //var deleteBtn = NewDailyRulePage.newDailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
+                //deleteBtn.Click();
+
+                //var yesBtn = deleteBtn.FindElement(By.Id("yesBtn"));
+                //yesBtn.Click();
 
 
 
@@ -64,7 +109,7 @@ namespace automationUserHubCXOne
                 //    }
 
                 //}
-            }
+            //}
         }
     }
 }

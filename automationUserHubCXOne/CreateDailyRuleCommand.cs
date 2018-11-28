@@ -17,7 +17,9 @@ namespace automationUserHubCXOne
         {
             Helper.waitForClassName("RuleTitle");
             Driver.Instance.FindElement(By.Name("RuleTitle")).SendKeys(title);
+
             DailyRulePage.Title = this.title;
+
             Helper.waitForId("save");
 
             //When we are working with frames
