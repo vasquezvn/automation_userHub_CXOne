@@ -22,12 +22,6 @@ namespace automationUserHubCXOne
 
             Helper.waitForId("save");
 
-            //When we are working with frames
-            //Driver.Instance.SwitchTo().Frame("content-fr");
-            //Driver.Instance.SwitchTo().DefaultContent();
-
-            //Thread.Sleep(1000);
-
             Driver.Instance.FindElement(By.Id("save")).Click();
             Thread.Sleep(1000);
         }

@@ -17,7 +17,6 @@ namespace automationUserHubCXOneTests
             Driver.Initialize();
         }
 
-
         [TestMethod]
         public void CanCreateADailyRule()
         {
@@ -28,8 +27,6 @@ namespace automationUserHubCXOneTests
 
             NewDailyRulePage.GoTo();
             NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
-
-            //NewDailyRulePage.GoToNewRule();
 
             Assert.AreEqual(DailyRulePage.getTitle(), DailyRulePage.Title, "Title did not match!");
         }
