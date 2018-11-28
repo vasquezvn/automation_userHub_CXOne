@@ -29,7 +29,7 @@ namespace automationUserHubCXOne
             //Thread.Sleep(1000);
 
             Driver.Instance.FindElement(By.Id("save")).Click();
-
+            Thread.Sleep(1000);
         }
     }
 }
