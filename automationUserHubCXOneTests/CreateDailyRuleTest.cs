@@ -28,6 +28,8 @@ namespace automationUserHubCXOneTests
             NewDailyRulePage.GoTo();
             NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
 
+            NewDailyRulePage.GoToNewRule();
+
             Assert.AreEqual(DailyRulePage.getTitle(), DailyRulePage.Title, "Title did not match!");
         }
 
