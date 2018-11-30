@@ -26,7 +26,7 @@ namespace automationUserHubCXOneTests
                 .WithPassword("123Test!@#")
                 .Login();
 
-            ListWeeklyRulesPage.GoTo()
+            //ListWeeklyRulesPage.GoTo()
 
             NewDailyRulePage.GoTo();
             NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
