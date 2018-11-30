@@ -1,10 +1,16 @@
 ﻿using automationUserHubCXOne;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace automationUserHubCXOneTests
 {
+
     [TestClass]
-    public class CreateDailyRuleTest
+    public class CreateWeekRuleTest
     {
         [TestInitialize]
         public void Init()
@@ -19,6 +25,8 @@ namespace automationUserHubCXOneTests
             LoginPage.LoginAs("ivanv.so32@incontact.com")
                 .WithPassword("123Test!@#")
                 .Login();
+
+            ListWeeklyRulesPage.GoTo()
 
             NewDailyRulePage.GoTo();
             NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
