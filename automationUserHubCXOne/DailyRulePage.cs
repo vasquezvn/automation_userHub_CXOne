@@ -27,7 +27,7 @@ namespace automationUserHubCXOne
                 var cancelBtn = Driver.Instance.FindElement(By.Id("cancel"));
                 cancelBtn.Click();
 
-                NewDailyRulePage.newDailyRuleRow_delete.Click();
+                ListDailyRules.newDailyRuleRow_delete.Click();
 
                 var deletebtn = Driver.Instance.FindElement(By.Id("yesBtn"));
                 deletebtn.Click();

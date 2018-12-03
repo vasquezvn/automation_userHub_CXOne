@@ -19,26 +19,30 @@ namespace automationUserHubCXOneTests
         }
 
         [TestMethod]
-        public void CanCreateADailyRule()
+        public void CanCreateAWeeklyRule()
         {
             LoginPage.GoTo();
             LoginPage.LoginAs("ivanv.so32@incontact.com")
                 .WithPassword("123Test!@#")
                 .Login();
 
-            //ListWeeklyRulesPage.GoTo()
+            ListWfm.GoToSetup(SetupType.DailyRules);
 
-            NewDailyRulePage.GoTo();
-            NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
+            ListDailyRules.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
 
-            NewDailyRulePage.GoToNewRule();
+            ListWfm.GoToSetup(SetupType.WeeklyRules);
 
-            Assert.AreEqual(DailyRulePage.getTitle(), DailyRulePage.Title, "Title did not match!");
+
+            ListWeelyRules.CreateWeelyRule(Helper.nameGenerator("IV_WRule")).withDrule(DailyRulePage.Title).Create();
+            //ListWeelyRules.GoToNewWRule();
+
+            //Assert.AreEqual(WeeklyRulePage.getTitle(), WeeklyRulePage.Title, "Title did not match!");
         }
 
         [TestCleanup]
         public void Cleanup()
         {
+            //NewWeeklyRulePage.deleteRule();
             DailyRulePage.deleteRule();
             Driver.Close();
         }

@@ -20,10 +20,11 @@ namespace automationUserHubCXOneTests
                 .WithPassword("123Test!@#")
                 .Login();
 
-            NewDailyRulePage.GoTo();
-            NewDailyRulePage.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
+            ListWfm.GoToSetup(SetupType.DailyRules);
 
-            NewDailyRulePage.GoToNewRule();
+            ListDailyRules.CreateDailyRule(Helper.nameGenerator("IVrule")).Create();
+
+            ListDailyRules.GoToNewRule();
 
             Assert.AreEqual(DailyRulePage.getTitle(), DailyRulePage.Title, "Title did not match!");
         }

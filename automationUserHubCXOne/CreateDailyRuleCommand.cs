@@ -15,6 +15,8 @@ namespace automationUserHubCXOne
 
         public void Create()
         {
+            Driver.Instance.FindElement(By.Id("newRule")).Click();
+
             Helper.waitForClassName("RuleTitle");
             Driver.Instance.FindElement(By.Name("RuleTitle")).SendKeys(title);
 
