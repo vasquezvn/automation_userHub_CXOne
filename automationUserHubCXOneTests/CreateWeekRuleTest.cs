@@ -34,6 +34,8 @@ namespace automationUserHubCXOneTests
 
 
             ListWeelyRules.CreateWeelyRule(Helper.nameGenerator("IV_WRule")).withDrule(DailyRulePage.Title).Create();
+
+
             //ListWeelyRules.GoToNewWRule();
 
             //Assert.AreEqual(WeeklyRulePage.getTitle(), WeeklyRulePage.Title, "Title did not match!");

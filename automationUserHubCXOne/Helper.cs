@@ -41,9 +41,11 @@ namespace automationUserHubCXOne
             return nameg;
         }
 
-        internal static string GetCurrentUser()
+        public static string GetCurrentUser()
         {
-            return Driver.Instance.FindElement(By.Id("simple-dropdown")).Text;
+            var userName = Driver.Instance.FindElement(By.Id("simple-dropdown")).Text.Trim().Split('\r')[0];
+
+            return userName;
         }
     }
 }
