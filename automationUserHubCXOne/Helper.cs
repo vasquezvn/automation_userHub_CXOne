@@ -47,5 +47,48 @@ namespace automationUserHubCXOne
 
             return userName;
         }
+
+        public static void chooseValueDropdownList(IWebElement dropdownlist, String value)
+        {
+            dropdownlist.Click();
+            var dropdownlistvalues = Driver.Instance.FindElements(By.XPath("//div[@class='ui-select-choices-row ng-scope']"));
+
+            foreach (var dropdownlistvalue in dropdownlistvalues)
+            {
+                if (dropdownlistvalue.Text.Equals(value))
+                {
+                    dropdownlistvalue.Click();
+                    break;
+                }
+            }
+        }
+
+        public static IWebElement[] getRowFromTableByName(String nameItem)
+        {
+            var table = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
+            var rows = table.FindElements(By.ClassName("ag-row-no-focus"));
+            object[] rowResults = null;
+
+            foreach (var row in rows)
+            {
+                if (!row.Text.Equals(String.Empty))
+                {
+                    var rowName = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[1].Text;
+
+                    if (rowName.Equals(nameItem))
+                    {
+                        rowResults = row.FindElements(By.ClassName("ag-cell-not-inline-editing"));
+
+                        //newDailyRuleRow_delete = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
+                        //dailyRuleRow.Click();
+
+                        break;
+                    }
+                }
+
+            }
+
+            return (IWebElement)rowResult;
+        }
     }
 }

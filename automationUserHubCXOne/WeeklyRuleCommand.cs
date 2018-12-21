@@ -16,17 +16,9 @@ namespace automationUserHubCXOne
             Driver.Instance.FindElement(By.Id("newRule")).Click();
             Driver.Instance.FindElement(By.Name("RuleTitle")).SendKeys(this.weeklyRuleName);
 
-            Driver.Instance.FindElement(By.XPath("//input[@class='ui-select-search ui-select-toggle ng-pristine ng-untouched ng-valid ng-empty']")).Click();
-            var dailyRules = Driver.Instance.FindElements(By.XPath("//div[@class='ui-select-choices-row ng-scope']"));
+            var dropdownlist = Driver.Instance.FindElement(By.XPath("//input[@class='ui-select-search ui-select-toggle ng-pristine ng-untouched ng-valid ng-empty']"));
 
-            foreach(var dailyRule in dailyRules)
-            {
-                if (dailyRule.Text.Equals(dailyRulename))
-                {
-                    dailyRule.Click();
-                    break;
-                }
-            }
+            Helper.chooseValueDropdownList(dropdownlist, dailyRulename);
 
             var possibleDays = Driver.Instance.FindElements(By.XPath("//div[@class='dayStyle ng-binding ng-scope']"));
 

@@ -24,10 +24,12 @@ namespace automationUserHubCXOne
         {
             try
             {
-                var cancelBtn = Driver.Instance.FindElement(By.Id("cancel"));
-                cancelBtn.Click();
+                if(Driver.Instance.FindElement(By.XPath("//h3[@class='modal-title ng-binding']")).Displayed)
+                    Driver.Instance.FindElement(By.Id("cancel")).Click();
 
-                ListDailyRules.newDailyRuleRow_delete.Click();
+                ListDailyRules.newDailyRuleRow[5];
+
+                //ListDailyRules.newDailyRuleRow_delete.Click();
 
                 var deletebtn = Driver.Instance.FindElement(By.Id("yesBtn"));
                 deletebtn.Click();

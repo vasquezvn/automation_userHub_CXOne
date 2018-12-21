@@ -26,6 +26,8 @@ namespace automationUserHubCXOne
 
             Driver.Instance.FindElement(By.Id("save")).Click();
             Thread.Sleep(1000);
+
+            ListDailyRules.newDailyRuleRow = Helper.getRowFromTableByName(DailyRulePage.Title);
         }
     }
 }
