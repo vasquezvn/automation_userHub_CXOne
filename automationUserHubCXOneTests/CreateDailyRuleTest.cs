@@ -16,7 +16,7 @@ namespace automationUserHubCXOneTests
         public void CanCreateADailyRule()
         {
             LoginPage.GoTo();
-            LoginPage.LoginAs("ivanv.so32@incontact.com")
+            LoginPage.LoginAs("ivan1v@so32.com")
                 .WithPassword("123Test!@#")
                 .Login();
 

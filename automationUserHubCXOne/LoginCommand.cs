@@ -26,6 +26,8 @@ namespace automationUserHubCXOne
             var loginEmailFieldNext = Driver.Instance.FindElement(By.Id("emailFieldNext"));
             loginEmailFieldNext.SendKeys(userName);
 
+            Helper.waitForId("nextBtn");
+
             var nextButtonLogin = Driver.Instance.FindElement(By.Id("nextBtn"));
             nextButtonLogin.Click();
 

@@ -27,6 +27,9 @@ namespace automationUserHubCXOne
             try
             {
                 new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(waitTime)).Until(ExpectedConditions.ElementIsVisible(By.Id(id)));
+
+                //var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
+                //wait.Until(d => d.SwitchTo().ActiveElement().GetAttribute("id") == "user_login");
             }
             catch (Exception ex)
             {
@@ -77,7 +80,7 @@ namespace automationUserHubCXOne
 
                     if (rowName.Equals(nameItem))
                     {
-                        rowResults = row.FindElements(By.ClassName("ag-cell-not-inline-editing"));
+                        //rowResults = row.FindElements(By.ClassName("ag-cell-not-inline-editing"));
 
                         //newDailyRuleRow_delete = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
                         //dailyRuleRow.Click();
@@ -88,7 +91,8 @@ namespace automationUserHubCXOne
 
             }
 
-            return (IWebElement)rowResult;
+            //return (IWebElement)rowResult;
+            return null;
         }
     }
 }

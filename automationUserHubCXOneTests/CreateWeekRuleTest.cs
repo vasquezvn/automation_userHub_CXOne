@@ -22,7 +22,7 @@ namespace automationUserHubCXOneTests
         public void CanCreateAWeeklyRule()
         {
             LoginPage.GoTo();
-            LoginPage.LoginAs("ivanv.so32@incontact.com")
+            LoginPage.LoginAs("ivan1v@so32.com")
                 .WithPassword("123Test!@#")
                 .Login();
 
@@ -36,9 +36,9 @@ namespace automationUserHubCXOneTests
             ListWeelyRules.CreateWeelyRule(Helper.nameGenerator("IV_WRule")).withDrule(DailyRulePage.Title).Create();
 
 
-            //ListWeelyRules.GoToNewRule();
+            ListWeelyRules.GoToNewRule();
 
-            //Assert.AreEqual(WeeklyRulePage.getTitle(), WeeklyRulePage.Title, "Title did not match!");
+            Assert.AreEqual(WeeklyRulePage.getTitle(), WeeklyRulePage.Title, "Title did not match!");
         }
 
         [TestCleanup]

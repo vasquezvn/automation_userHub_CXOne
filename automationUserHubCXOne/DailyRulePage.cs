@@ -27,7 +27,7 @@ namespace automationUserHubCXOne
                 if(Driver.Instance.FindElement(By.XPath("//h3[@class='modal-title ng-binding']")).Displayed)
                     Driver.Instance.FindElement(By.Id("cancel")).Click();
 
-                ListDailyRules.newDailyRuleRow[5];
+                //ListDailyRules.newDailyRuleRow[5];
 
                 //ListDailyRules.newDailyRuleRow_delete.Click();
 

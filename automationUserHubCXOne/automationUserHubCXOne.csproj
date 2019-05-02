@@ -65,6 +65,7 @@
     <Compile Include="ListDailyRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeeklyRuleCommand.cs" />
+    <Compile Include="WeeklyRulePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

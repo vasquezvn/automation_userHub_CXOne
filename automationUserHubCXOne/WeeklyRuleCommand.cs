@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Threading;
 
 namespace automationUserHubCXOne
 {
@@ -34,12 +35,27 @@ namespace automationUserHubCXOne
 
         public void Create()
         {
+            WeeklyRulePage.Title = this.weeklyRuleName;
+
             Driver.Instance.FindElement(By.Id("employee-tab")).Click();
             Driver.Instance.FindElement(By.LinkText("Add Employees")).Click();
             Driver.Instance.FindElement(By.XPath("//input[@class='ng-pristine ng-untouched ng-valid ng-empty search-on-keypress']")).SendKeys(Helper.GetCurrentUser());
+
+            Thread.Sleep(2000);
+
             Driver.Instance.FindElement(By.LinkText("Select All")).Click();
+
+            Thread.Sleep(2000);
+
+
             Driver.Instance.FindElement(By.Id("set-selected-users")).Click();
+
+            Thread.Sleep(2000);
+
+
             Driver.Instance.FindElement(By.Id("save")).Click();
+
+            Thread.Sleep(2000);
         }
     }
 }
