@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,11 +67,15 @@ namespace automationUserHubCXOne
             }
         }
 
-        public static IWebElement[] getRowFromTableByName(String nameItem)
+        public static IWebElement getRowFromTableByColumnName(String nameItem, String waitElementByClassName, ColumnName tableValue)
         {
+            waitForClassName(waitElementByClassName);
+
             var table = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
-            var rows = table.FindElements(By.ClassName("ag-row-no-focus"));
-            object[] rowResults = null;
+
+            var rows = table.FindElements(By.ClassName("ag-row"));
+
+            IWebElement rowMatch = null;
 
             foreach (var row in rows)
             {
@@ -80,10 +85,21 @@ namespace automationUserHubCXOne
 
                     if (rowName.Equals(nameItem))
                     {
-                        //rowResults = row.FindElements(By.ClassName("ag-cell-not-inline-editing"));
+                        switch (tableValue)
+                        {
+                            case ColumnName.Check:
+                                rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[0];
+                                break;
 
-                        //newDailyRuleRow_delete = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
-                        //dailyRuleRow.Click();
+                            case ColumnName.Name:
+                                rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[1];
+                                break;
+
+                            case ColumnName.Delete:
+                                rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
+                                break;
+
+                        }
 
                         break;
                     }
@@ -91,8 +107,12 @@ namespace automationUserHubCXOne
 
             }
 
-            //return (IWebElement)rowResult;
-            return null;
+            return rowMatch;
         }
+    }
+
+    public enum ColumnName
+    {
+        Check,Name,Delete
     }
 }

@@ -14,35 +14,22 @@ namespace automationUserHubCXOne
 
         public static void GoToNewRule()
         {
-            Helper.waitForClassName("daily-rules-grid-wrapper");
+            IWebElement rowMatch = Helper.getRowFromTableByColumnName(DailyRulePage.Title, "daily-rules-grid-wrapper", ColumnName.Name);
 
-            //Helper.getRowFromTableByName(DailyRulePage.Title).Click();
-
-            var dailyRulesTable = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
-
-            var dailyRulesDivs = dailyRulesTable.FindElements(By.ClassName("ag-row-no-focus"));
-
-            foreach (var dailyRuleRow in dailyRulesDivs)
-            {
-                if (!dailyRuleRow.Text.Equals(String.Empty))
-                {
-                    var newDailyRule = dailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[1].Text;
-
-                    if (newDailyRule.Equals(DailyRulePage.Title))
-                    {
-                        //newDailyRuleRow_delete = dailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
-                        dailyRuleRow.Click();
-
-                        break;
-                    }
-                }
-
-            }
+            rowMatch.Click();
         }
 
         public static CreateDailyRuleCommand CreateDailyRule(string title)
         {
             return new CreateDailyRuleCommand(title);
+        }
+
+        public static void DeleteSingleRule(string title)
+        {
+            IWebElement rowToDelete = Helper.getRowFromTableByColumnName(title, "daily-rules-grid-wrapper", ColumnName.Delete);
+            rowToDelete.Click();
+
+            Driver.Instance.FindElement(By.Id("yesBtn")).Click();
         }
     }
 }
