@@ -44,7 +44,11 @@ namespace automationUserHubCXOneTests
         [TestCleanup]
         public void Cleanup()
         {
-            //NewWeeklyRulePage.deleteRule();
+            WeeklyRulePage.PressCancel();
+            ListWeelyRules.DeleteSingleRule(WeeklyRulePage.Title);
+            ListWfm.GoToSetup(SetupType.DailyRules);
+            ListDailyRules.DeleteSingleRule(DailyRulePage.Title);
+
             Driver.Close();
         }
     }

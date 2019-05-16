@@ -19,5 +19,10 @@ namespace automationUserHubCXOne
         {
             return Driver.Instance.FindElement(By.Name("RuleTitle")).GetAttribute("value");
         }
+
+        public static void PressCancel()
+        {
+            Driver.Instance.FindElement(By.Id("cancel")).Click();
+        }
     }
 }

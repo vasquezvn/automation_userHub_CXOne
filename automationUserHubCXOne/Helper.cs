@@ -67,10 +67,8 @@ namespace automationUserHubCXOne
             }
         }
 
-        public static IWebElement getRowFromTableByColumnName(String nameItem, String waitElementByClassName, ColumnName tableValue)
+        public static IWebElement getCellFromTableByColumnName(String nameItem, ColumnName tableValue)
         {
-            waitForClassName(waitElementByClassName);
-
             var table = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
 
             var rows = table.FindElements(By.ClassName("ag-row"));
@@ -99,6 +97,10 @@ namespace automationUserHubCXOne
                                 rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
                                 break;
 
+                            case ColumnName.DeleteWeek:
+                                rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[6];
+                                break;
+
                         }
 
                         break;
@@ -113,6 +115,6 @@ namespace automationUserHubCXOne
 
     public enum ColumnName
     {
-        Check,Name,Delete
+        Check,Name,Delete,DeleteWeek
     }
 }

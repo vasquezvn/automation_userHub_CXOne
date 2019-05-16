@@ -14,7 +14,8 @@ namespace automationUserHubCXOne
 
         public static void GoToNewRule()
         {
-            IWebElement rowMatch = Helper.getRowFromTableByColumnName(DailyRulePage.Title, "daily-rules-grid-wrapper", ColumnName.Name);
+            Helper.waitForClassName("daily-rules-grid-wrapper");
+            IWebElement rowMatch = Helper.getCellFromTableByColumnName(DailyRulePage.Title, ColumnName.Name);
 
             rowMatch.Click();
         }
@@ -26,7 +27,8 @@ namespace automationUserHubCXOne
 
         public static void DeleteSingleRule(string title)
         {
-            IWebElement rowToDelete = Helper.getRowFromTableByColumnName(title, "daily-rules-grid-wrapper", ColumnName.Delete);
+            Helper.waitForClassName("daily-rules-grid-wrapper");
+            IWebElement rowToDelete = Helper.getCellFromTableByColumnName(title, ColumnName.Delete);
             rowToDelete.Click();
 
             Driver.Instance.FindElement(By.Id("yesBtn")).Click();
