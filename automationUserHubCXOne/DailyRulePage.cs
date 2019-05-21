@@ -24,7 +24,7 @@ namespace automationUserHubCXOne
         public static void PressCancelButton()
         {
             Driver.Instance.FindElement(By.Id("cancel")).Click();
-            //Thread.Sleep(2000);
+            Thread.Sleep(2000);
         }
     }
 }

@@ -32,9 +32,7 @@ namespace automationUserHubCXOneTests
 
             ListWfm.GoToSetup(SetupType.WeeklyRules);
 
-
             ListWeelyRules.CreateWeelyRule(Helper.nameGenerator("IV_WRule")).withDrule(DailyRulePage.Title).Create();
-
 
             ListWeelyRules.GoToNewRule();
 
