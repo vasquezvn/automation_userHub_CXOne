@@ -20,35 +20,12 @@ namespace automationUserHubCXOne
             IWebElement rowMatch = Helper.getCellFromTableByColumnName(WeeklyRulePage.Title, ColumnName.Name);
 
             rowMatch.Click();
-
-            //Helper.getRowFromTableByName(DailyRulePage.Title).Click();
-
-            //var weeklyRulesTable = Driver.Instance.FindElement(By.XPath("//div[@class='ag-body-container']"));
-
-            //var weeklyRulesDivs = weeklyRulesTable.FindElements(By.ClassName("ag-row-no-focus"));
-
-            //foreach (var weeklyRuleRow in weeklyRulesDivs)
-            //{
-            //    if (!weeklyRuleRow.Text.Equals(String.Empty))
-            //    {
-            //        var newWeeklyRule = weeklyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[1].Text;
-
-            //        if (newWeeklyRule.Equals(WeeklyRulePage.Title))
-            //        {
-            //            //newDailyRuleRow_delete = dailyRuleRow.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
-            //            weeklyRuleRow.Click();
-
-            //            break;
-            //        }
-            //    }
-
-            //}
         }
 
         public static void DeleteSingleRule(string title)
         {
             Helper.waitForClassName("weekly-rules-grid-wrapper");
-            IWebElement rowToDelete = Helper.getCellFromTableByColumnName(title, ColumnName.DeleteWeek);
+            IWebElement rowToDelete = Helper.getCellFromTableByColumnName(title, ColumnName.Delete);
             rowToDelete.Click();
 
             Driver.Instance.FindElement(By.Id("yesBtn")).Click();

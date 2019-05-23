@@ -94,11 +94,18 @@ namespace automationUserHubCXOne
                                 break;
 
                             case ColumnName.Delete:
-                                rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[5];
-                                break;
+                                IEnumerator<IWebElement> enumerator = row.FindElements(By.ClassName("ag-cell-not-inline-editing")).GetEnumerator();
+                                while (enumerator.MoveNext())
+                                {
+                                    
+                                    if (enumerator.Current.GetAttribute("class").Contains("delete-button-col"))
+                                    {
+                                        rowMatch = enumerator.Current;
+                                        break;
+                                    }
 
-                            case ColumnName.DeleteWeek:
-                                rowMatch = row.FindElements(By.ClassName("ag-cell-not-inline-editing"))[6];
+                                }
+
                                 break;
 
                         }
